@@ -1,0 +1,44 @@
+<div class="sidebar">
+    <div class="dropdown">
+        <img src="{{image}}" alt="User image" [matMenuTriggerFor]="menu"/>
+        <mat-menu #menu="matMenu" class="menusett">
+            <div class="menu">
+                <button mat-menu-item (click)="openDialog()"><fa-icon [icon]="faac"></fa-icon><span>Cập nhật thông tin</span></button>
+                <button mat-menu-item class="cut" (click)="openDialogMK()"><fa-icon [icon]="faco"></fa-icon><span>Đổi mật khẩu</span></button>
+                <button mat-menu-item class="so" (click)="LogOutClick()"><fa-icon [icon]="fas"></fa-icon><span>Đăng xuất</span></button>
+            </div>
+           
+        </mat-menu>
+    </div>
+    <ul class="sidebar-nav">
+        <li class="sidebar-nav-item">
+        <a class="sidebar-nav-link" routerLink = '/Dashboard' (click)="changeViewtoMes()"> 
+            <div>
+                <fa-icon [icon]="fac"></fa-icon>
+            </div>
+            <span> Tin nhắn</span>
+        </a>
+        </li>
+        <li class="sidebar-nav-item">
+        <a routerLink = '/Dashboard' class="sidebar-nav-link" (click)="changeViewtoListFriends()">
+            <div>
+                <fa-icon [icon]="faad"></fa-icon>
+            </div>
+            <span> Danh bạ</span>
+        </a>
+        </li>
+        <li class="sidebar-nav-item">
+        <a routerLink = '/Dashboard' class="sidebar-nav-link" (click)="changeViewtoAccepFriend()">
+            <span class="thongbao">{{index}}</span>
+            <div>
+                <fa-icon [icon]="fabe"></fa-icon>
+            </div>
+            <span> Thông báo</span>
+        </a>
+        </li>
+        <li class="sidebar-nav-item">
+            <img src="../../../assets/title-img.png" alt="Logo"/>    
+        </li>
+    </ul>
+</div>
+

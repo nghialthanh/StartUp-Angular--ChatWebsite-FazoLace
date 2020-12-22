@@ -1,0 +1,153 @@
+<div class="my-container">
+  <mat-toolbar class="my-background" style="width: 100%">
+    <button
+      class="head-icon"
+      type="button"
+      mat-icon-button
+      color="primary"
+      (click)="checkLeftSide = !checkLeftSide"
+      (click)="drawer.toggle()"
+    >
+      <mat-icon aria-hidden="false" aria-label="Example home icon"
+        >{{ checkLeftSide ? "admin_panel_settings
+" : "arrow_back" }}
+      </mat-icon>
+    </button>
+
+    <div class="branch-fazolace">
+      <img class="branch-img" src="../../../assets/title-img.png" alt="" />
+      <a class="branch-title" href="">Fazolace</a>
+    </div>
+
+    <mat-form-field class="text-item branch-search" appearance="outline">
+      <mat-label>Tìm kiếm</mat-label>
+      <input
+        (keyup)="applyFilter($event)"
+        class="input-search"
+        matInput
+        placeholder="Dương Chí Hiếu"
+      />
+      <mat-icon class="custom-icon" matSuffix>search</mat-icon>
+    </mat-form-field>
+    <span class="example-spacer"></span>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Example icon-button with a menu"
+    >
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button (click)="openDialog()" mat-menu-item>
+        <mat-icon>person_add_alt_1 </mat-icon>
+        <span>Thêm thành viên</span>
+      </button>
+      <button (click)="LogOutClick()" mat-menu-item>
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Đăng xuất</span>
+      </button>
+    </mat-menu>
+  </mat-toolbar>
+  <mat-drawer-container class="nav-container" autoside>
+    <mat-drawer #drawer class="left-side" mode="side" opened>
+      <div class="info">
+        <img [src]="user_image" alt="" />
+        <p class="account-name">{{ user_name }}</p>
+        <p class="account-role">{{ role }}</p>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <div style="width: 100%" class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <!-- Position Column -->
+          <ng-container matColumnDef="account">
+            <th mat-header-cell *matHeaderCellDef>Account Name</th>
+            <td
+              #accountName
+              (click)="GetElement($event, element.account_name)"
+              mat-cell
+              *matCellDef="let element"
+            >
+              {{ element.account_name }}
+            </td>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="password">
+            <th mat-header-cell *matHeaderCellDef>User Name</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.user_name }}
+            </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="user_name">
+            <th mat-header-cell *matHeaderCellDef>Role</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.account_Role }}
+            </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="user_status">
+            <th mat-header-cell *matHeaderCellDef>Status</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.account_status === "available" ? "Active" : "Baner" }}
+            </td>
+          </ng-container>
+          <ng-container matColumnDef="button" stickyEnd>
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                mat-icon-button
+                [matMenuTriggerFor]="menu"
+                aria-label="Example icon-button with a menu"
+              >
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>sync_alt</mat-icon>
+                  <span>Cập nhật thông tin</span>
+                </button>
+                <button mat-menu-item (click)="onBan($event, element.account_name, element.account_status)">
+                  <mat-icon
+                    >{{
+                      element.account_status === "available"
+                        ? "person_remove"
+                        : "person_add_alt_1"
+                    }}
+                  </mat-icon>
+                  <span>
+                    {{
+                      element.account_status === "available"
+                        ? "Khóa tài khoản"
+                        : "Mở tài khoản"
+                    }}</span
+                  >
+                </button>
+                <button mat-menu-item (click)="onDelete($event, element.account_name)">
+                  <mat-icon>delete_sweep </mat-icon>
+                  <span>Xóa tài khoản</span>
+                </button>
+              </mat-menu>
+            </td>
+          </ng-container>
+          <tr
+            mat-header-row
+            *matHeaderRowDef="displayedColumns; sticky: true"
+          ></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  <p style="text-align: right">
+    <mat-slide-toggle
+      (change)="ChangeToogle()"
+      [(ngModel)]="isCheckBaner"
+      style="margin-right: 20px; margin-top: 20px"
+      >Xem danh sách tài khoản bị ngừng hoạt động</mat-slide-toggle
+    >
+  </p>
+  <mat-paginator [pageSizeOptions]="[15]" showFirstLastButtons></mat-paginator>
+</div>

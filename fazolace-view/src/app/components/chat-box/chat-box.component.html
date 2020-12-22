@@ -1,0 +1,144 @@
+<div class="chat-box" id="chat-box">
+     <div class="header">
+        <img src="{{url}}" alt="User image" />
+        <h2>{{userName}}</h2>
+        <div class="item">
+            <h5>{{relationship}}</h5>
+        </div>
+        <fa-icon [icon]="fa"></fa-icon>
+    </div>
+    <div class="body">
+        <!-- <emoji-mart title="Pick your emoji…" emoji="point_up"></emoji-mart> -->
+        <form>
+            <div class="friend" *ngFor='let fr of listFr'>
+                <p> alo {{fr}}</p>
+            </div>
+            <div class="chat-messages">
+                <div class="chat-messages-show-container">
+                    <div #scrollMe style="overflow: auto;   height: 100%;">
+                        <ul class="chat-messages-show-list" id="message-list">
+                            <!-- <li *ngFor="let tn of this.listMess; let i = index"> -->
+                            <div *ngIf="checkRoom == false;else Room">
+                                <li *ngFor="let tn of this.listMess; let i = index">
+                                    <div *ngIf="tn.content.userSend === this.myAccount;else elseBlock">
+                                        <img class="img1" src={{avartar}}>                                      
+                                        <div [ngSwitch] ="tn.content.type">
+                                            <div class="messend">
+                                                <ng-template [ngSwitchCase]="'chat'">                                                    
+                                                        <span>{{tn.content.content}}</span>                                                       
+                                                </ng-template>
+                                                <ng-template [ngSwitchCase]="'video/mp4'">
+                                                    <video width="330px" controls>
+                                                        <source src="https://bucketchats.s3-ap-southeast-1.amazonaws.com/{{tn.content.content}}" type="video/mp4">                                
+                                                    </video>
+                                                </ng-template>                                        
+                                                <ng-template ngSwitchDefault>
+                                                    <span> <img src="https://bucketchats.s3-ap-southeast-1.amazonaws.com/{{tn.content.content}}"> </span>
+                                                </ng-template>
+                                                <div class="time"><span>{{tn.content.chatID |  date:'shortTime'}}</span></div>
+                                            </div>
+                                        </div>
+                                    </div>       
+                                    <ng-template #elseBlock>
+                                        <img class="img2" src="{{this.url}}">  
+                                        <div [ngSwitch] ="tn.content.type">
+                                            <div class="mesrece">
+                                                <ng-template [ngSwitchCase]="'chat'">                                                    
+                                                        <span>{{tn.content.content}}</span>                                                       
+                                                </ng-template>
+                                                <ng-template [ngSwitchCase]="'video/mp4'">
+                                                    <video width="330px" controls>
+                                                        <source src="https://bucketchats.s3-ap-southeast-1.amazonaws.com/{{tn.content.content}}" type="video/mp4">                                
+                                                    </video>
+                                                </ng-template>                                        
+                                                <ng-template ngSwitchDefault>
+                                                    <span> <img src="https://bucketchats.s3-ap-southeast-1.amazonaws.com/{{tn.content.content}}"> </span>
+                                                </ng-template>
+                                                <div class="time"><span>{{tn.content.chatID |  date:'shortTime'}}</span></div>
+                                            </div>
+                                        </div>
+                                
+                                    </ng-template>
+                                </li>
+                            </div>
+                            <ng-template #Room>
+                                <li *ngFor="let tn of this.listMessRoom; let i = index">
+                                    <div *ngIf="tn.content.userSend === this.myAccount;else elseBlock1">
+                                        <img class="img1" src={{avartar}}>
+                                        <div [ngSwitch] ="tn.content.type">
+                                            <div class="messend">
+                                                <ng-template [ngSwitchCase]="'chat'">                                                    
+                                                        <span>{{tn.content.content}}</span>                                                       
+                                                </ng-template>
+                                                <ng-template [ngSwitchCase]="'video/mp4'">
+                                                    <video width="330px" controls>
+                                                        <source src="https://bucketchats.s3-ap-southeast-1.amazonaws.com/{{tn.content.content}}" type="video/mp4">                                
+                                                    </video>
+                                                </ng-template>                                        
+                                                <ng-template ngSwitchDefault>
+                                                    <span> <img src="https://bucketchats.s3-ap-southeast-1.amazonaws.com/{{tn.content.content}}"> </span>
+                                                </ng-template>
+                                                <div class="time"><span>{{tn.content.chatID |  date:'shortTime'}}</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <ng-template #elseBlock1>
+                                        <img class="img2" src="{{this.urlS3}}{{tn.image}}">
+                                        <div [ngSwitch] ="tn.content.type">
+                                            <div class="mesrece">
+                                                <ng-template [ngSwitchCase]="'chat'">                                                    
+                                                        <span>{{tn.content.content}}</span>                                                       
+                                                </ng-template>
+                                                <ng-template [ngSwitchCase]="'video/mp4'">
+                                                    <video width="330px" controls>
+                                                        <source src="https://bucketchats.s3-ap-southeast-1.amazonaws.com/{{tn.content.content}}" type="video/mp4">                                
+                                                    </video>
+                                                </ng-template>                                        
+                                                <ng-template ngSwitchDefault>
+                                                    <span> <img src="https://bucketchats.s3-ap-southeast-1.amazonaws.com/{{tn.content.content}}"> </span>
+                                                </ng-template>
+                                                <div class="time"><span>{{tn.content.chatID |  date:'shortTime'}}</span></div>
+                                            </div>
+                                        </div>
+                                    </ng-template>
+                                </li>
+                                <br>
+                            </ng-template>
+                            <div *ngIf="typing" id="typing">
+                                <a style="color: white; font-size: 14px;margin-left: 5px;">có người đang gõ
+                                 <img style="margin-left: 5px;" src="../../../assets/animation_500_kisnwx6m.gif" width=20/></a>
+                            </div>  
+                        </ul>
+                    </div>
+                </div>
+                <div class="chat-messages-create-container">      
+                       
+                    <div class="icon">
+                        <div class="image-upload">
+                            
+                            <label for="file-input">
+                                    <input #fileOpens style="display: none;" type="file" (change)="onFilePicked($event)" placeholder="upload File" />
+                                    <div (click)="this.showEmojiPicker = !this.showEmojiPicker">
+                                        <span><fa-icon [icon]="fasm" id="icon1"></fa-icon></span>
+                                       <span *ngIf="this.showEmojiPicker == true">
+                                          <emoji-mart  [style]="{ position: 'absolute', bottom: '75px', left: '115px'}" class="emoji-mart" set="{{set}}" *ngIf="showEmojiPicker" (emojiClick)="addEmoji($event)"></emoji-mart>
+                                       </span>
+                                    </div>
+                            </label>
+                        </div>
+                        <fa-icon (click)="fileOpens.click()" [icon]="fai" id="icon2">
+                        </fa-icon>
+                    </div>
+                    <div (mouseover)="this.showEmojiPicker = false">
+                          <input (keyup)="onKeyUp($event)" placeholder="Nhập tin nhắn ở đây . . ." class="chat-messages-create-input" type="text" [(ngModel)]="message" name="message">
+                    </div>
+                    <button class="chat-messages-create-button" (click)="SendMessage()">Send</button>
+                    <div class="send">
+                        <fa-icon [icon]="fapp" id="iconsend" (click)="SendMessage()"></fa-icon>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

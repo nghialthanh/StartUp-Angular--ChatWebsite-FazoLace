@@ -1,0 +1,33 @@
+@import '~@ctrl/ngx-emoji-mart/picker';
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: -webkit-linear-gradient(to right, #78f1e9, #86A8E7, #7F7FD5);
+	background: linear-gradient(to right, #78f1e9, #86A8E7, #7F7FD5);
+}
+.mat-dialog-container {
+  padding: 0px !important;
+  border-radius: 0;
+  background-image: url("https://static.vecteezy.com/system/resources/previews/000/625/810/non_2x/vector-grey-abstract-geometric-background-for-business.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+button {
+  outline: none;
+}
+
+.mat-icon-button {
+  outline: none;
+}
+
+.mat-fab {
+  outline: none;
+}
+.mat-mini-fab {
+  outline: none;
+}

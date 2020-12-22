@@ -1,0 +1,47 @@
+<div class="dialog">
+  <div class="info" id="info">
+    <img src="assets/bia.png" alt="Anh Bia" class="bia" />
+    <div class="hover">
+        <img src="{{user_image}}" alt="Avatar" class="ava" id='ava'/>
+        <div class="image-upload">
+            <fa-icon [icon]="fa" (click)="fileInput.click()"></fa-icon>
+        </div>
+        
+    </div>
+    <input style="display: none;" #fileInput id="file-input" type="file"  (change)="onImagePicked($event)"/>
+
+    <p id="ten" #ten><input matInput [(ngModel)]="user.user_name"></p>
+    <table>
+        <tr>
+            <td>Điện thoại:</td>
+            <td id="sdt"><input matInput [(ngModel)]="user.user_phone"></td>
+        </tr>
+        <tr>
+            <td>Ngày sinh:</td>
+            <td id="gt">
+              <mat-form-field appearance="fill">
+                <input matInput [matDatepicker]="picker" readonly [(ngModel)]="user.user_date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </td>
+        </tr>
+        <tr class="last">
+          <td>Email:</td>
+          <td id="email"><input matInput [(ngModel)]="user.user_email"></td>
+        </tr>
+        
+    </table>
+    <div class="ns">
+    <span>Giới tính:</span>
+          <mat-radio-group [(ngModel)]="user.user_gender">
+            <mat-radio-button value="1">Nam</mat-radio-button>
+            <mat-radio-button value="2">Nữ</mat-radio-button>
+          </mat-radio-group>
+    </div>
+</div>
+<div class="footer">
+  <button mat-button (click)="onNoClick()">Hủy</button>
+  <button mat-button  cdkFocusInitial (click)='saveUpdate()'>Lưu</button>
+</div>
+</div>

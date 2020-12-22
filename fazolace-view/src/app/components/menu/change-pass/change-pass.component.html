@@ -1,0 +1,18 @@
+<div class="pass">
+    <h2> Đổi mật khẩu</h2>
+    <table>
+        <tr>
+            <td>Mật khẩu cũ:</td>
+            <td><input type="password" [(ngModel)]="account.account_pass"></td>
+        </tr>
+        <tr>
+            <td>Mật khẩu mới:</td>
+            <td><input type="password" [(ngModel)]="account.passNew"></td>
+        </tr>
+        <tr>
+            <td>Xác nhận mật khẩu mới:</td>
+            <td><input type="password" [(ngModel)]="confirmPassnew"></td>
+        </tr>
+    </table>
+    <button mat-button (click)="changePass()">Đổi mật khẩu</button>
+</div>

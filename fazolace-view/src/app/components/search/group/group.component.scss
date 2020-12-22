@@ -1,0 +1,78 @@
+.addgroup{
+    overflow: hidden;
+    height: 630px;
+    h1{
+        width: 400px;
+        text-align: center;
+    }
+    .hearder{
+        input{
+            width: 100%;
+
+        }
+        p{
+            color: black;
+        }
+    }
+    mat-label{
+        color:  #1c9436;
+    }
+    mat-selection-list{
+        overflow: scroll;
+        height: 420px;
+        mat-list-option{
+            color: gray;
+            width: 100%;
+            p{
+                margin-left: 50px;
+            }
+            img{
+                position: absolute;
+                top: 3px;
+                left: 11px;
+                    width: 42px;
+                    height: 42px;
+                    border-radius: 50%;
+            }
+            padding-bottom: 5px;
+        }
+        mat-list-option:hover{
+            cursor: pointer;
+            background: rgb(238, 238, 238);
+        }
+        
+    }
+    button{
+        color: gray;
+        text-align: center;
+        width: 100%;
+    }
+}
+::ng-deep .mat-dialog-container{
+    background-color: white;
+}
+::ng-deep .mat-dialog-title{
+    background-color: #78e08f;
+    width: 100%;
+}
+::ng-deep input.mat-input-element {
+    color: gray;
+  }
+/* Change label color on focused */
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color:   #1c9436 !important;
+}
+::ng-deep .mat-form-field-underline{
+    color:  #1c9436 !important;
+}
+/* underline border color on focused */
+::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    background-color: #1c9436 !important;
+}  
+::ng-deep .mat-pseudo-checkbox{
+    background: rgb(214, 214, 214);
+}
+::ng-deep .mat-pseudo-checkbox-checked{
+    background-color:  #1c9436 !important;
+}
+  

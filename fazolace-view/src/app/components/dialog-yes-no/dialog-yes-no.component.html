@@ -1,0 +1,10 @@
+<div class="dialogYesNo"> 
+    <h3 mat-dialog-title id="title">{{data.title}}</h3>
+    <div *ngIf="data.ktr; else condition1" class="header">
+        <button mat-button  (click)="No()">Không</button>
+        <button mat-button  (click)="Yes()">Có</button>
+    </div>
+    <ng-template #condition1 class="header2">
+            <button mat-button [mat-dialog-close]>Xác Nhận</button>
+    </ng-template>
+</div>

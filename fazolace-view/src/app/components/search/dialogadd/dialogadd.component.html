@@ -1,0 +1,48 @@
+<div class="addfriend"> 
+<h1 mat-dialog-title id="title">Thêm bạn</h1>
+<div *ngIf="ktr" id="header">
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Số điện thoại hoặc Email</mat-label>
+      <input matInput [(ngModel)]="infoSearch.infoInput">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="search()">Tìm kiếm </button>
+  </div>
+</div>
+<div class="Viewinfo" id="Viewinfo">
+    <img src="assets/bia.png" alt="Anh Bia" class="bia" />
+    <img src="{{url}}" alt="Avatar" class="ava" id='ava'/>
+    <p id="ten" #ten>{{info.user_name}}</p>
+    <table>
+        <tr>
+            <td >Điện thoại:</td>
+            <td id="sdt">{{info.user_phone}}</td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td id="email">{{info.user_email}}</td>
+      </tr>
+        <tr>
+            <td>Giới tính:</td>
+            <td id="gt">{{info.user_gender}}</td>
+        </tr>
+        <tr>
+            <td>Ngày sinh</td>
+            <td id="ns">{{info.user_date}}</td>
+        </tr>
+    </table>
+    <ul>
+      <li>
+        <fa-icon [icon]="fant"></fa-icon>
+        <p>Nhắn tin</p>
+      </li>
+      <li>
+        <fa-icon (click)="sendReq()" [icon]="fakb"></fa-icon>
+        <p>{{ action }}</p>
+      </li>
+    </ul>
+</div>
+
+</div>

@@ -1,0 +1,62 @@
+<div class="container-child">
+  <div class="beginform">
+    <h1>CHÀO MỪNG BẠN ĐẾN VỚI FAZOLAKE</h1>
+    <img src="../../../assets/title-img.png" alt="Logo"/>  
+  </div>
+  <mat-card class="form-center">
+    <p class="title">
+      <mat-card-header>
+        <div mat-card-avatar class="title-img"></div>
+        <mat-card-title class="title-login"
+          >Chào mừng quay lại Fazolace</mat-card-title
+        >
+      </mat-card-header>
+    </p>
+
+    <p>
+      <mat-form-field class="text-item" appearance="outline">
+        <mat-label>Tên đăng nhập</mat-label>
+        <input
+          matInput
+          placeholder="Nhập tên đăng nhập"
+          [(ngModel)]="user1.account_name"
+        />
+        <mat-icon class="custom-icon" matSuffix>account_circle</mat-icon>
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field class="text-item" appearance="outline">
+        <mat-label>Mật khẩu</mat-label>
+        <input
+          [(ngModel)]="user1.account_pass"
+          placeholder="Nhập mật khẩu"
+          matInput
+          [type]="hide ? 'password' : 'text'"
+        />
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="ClickHidePassword()"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+        >
+          <mat-icon class="custom-icon">{{
+            hide ? "visibility_off" : "visibility"
+          }}</mat-icon>
+        </button>
+      </mat-form-field>
+    </p>
+    <mat-checkbox class="checkbox-color">Ghi nhớ đăng nhập</mat-checkbox>
+    <div class="container-button">
+      <button (click)="onLogin()" mat-raised-button color="warn">
+        Đăng nhập
+      </button>
+    </div>
+    <p>
+      Chưa có tài khoản?<a class="link-register" href="register"
+        >Hãy tham gia ngay cùng Fazolace</a
+      >
+    </p>
+    <p><a class="link-forgot" href="">Quên mật khẩu?</a></p>
+  </mat-card>
+</div>

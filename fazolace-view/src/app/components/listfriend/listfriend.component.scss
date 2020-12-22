@@ -1,0 +1,171 @@
+
+.listfriend{
+    position: fixed;
+    overflow: scroll;
+    overflow-x:hidden;
+    width: 330px;
+    border-bottom: 0.1px solid rgb(199, 198, 198);
+    height: 82vh;
+    margin-left: 85px;
+    margin-top: 14.5vh;
+    border-radius: 0 0 15px 15px;
+    background-color: rgba(0,0,0,0.4) !important;
+    mat-list-option{
+        color: black;
+        width: 100%;
+        height: 70px;
+        p{
+            margin-left: 70px;
+            width: 200px;
+            overflow: hidden;
+            color: whitesmoke;
+        }
+        .phone{
+            font-size: 13px;
+            color: rgb(219, 219, 219);
+        }
+        .email{
+            font-size: 13px;
+            color: gray;
+        }
+        img{
+            position: absolute;
+            top: 7px;
+            left: 11px;
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                border: 1px solid whitesmoke;
+        }
+        fa-icon{
+            position: absolute;
+            color: whitesmoke;
+            top: 23px;
+            right: 5%;
+            font-size: 25px;
+            display: none;
+        }
+        fa-icon:hover{
+            cursor: pointer;
+            color: #78f1e9;
+        }
+    }
+    #ContactList{
+        display: inline;
+    }
+    #listFriend{
+        display: inline;
+    }
+    mat-list-option:hover{
+        background: #6dc4be;
+    }
+    mat-list-option:active{
+        background: #6dc4be;
+    }
+    mat-list-option:hover fa-icon{
+        display: block;
+    }
+}
+.menu {	
+	button{
+		color:whitesmoke;
+		width: 100%;
+        height: 40px;
+		span{
+			position: absolute;
+			font-size: 15px;
+			left: 5%;
+			top: -5px;
+		}	
+	}
+	button:hover{
+		background-color: rgba(2, 2, 2, 0.2);
+	}
+
+}
+.listfriend1{
+    position: fixed;
+    overflow: scroll;
+    overflow-x:hidden;
+    height: 83vh;
+    width: 330px;
+    margin-left: 85px;
+    margin-top: 14.5vh;
+    border-radius: 0 0 15px 15px;
+    background-color: rgba(0,0,0,0.4) !important;
+    mat-list-option{
+        color: black;
+        width: 100%;
+        height: 70px;
+        p{
+            margin-left: 70px;
+            margin-top: 15px;
+            width: 200px;
+            overflow: hidden;
+        }
+        .status{
+            display: none;
+            font-size: 13px;
+            color: gray;
+            position: relative;
+            bottom: 8px;
+        }
+        img{
+            position: absolute;
+            top: 7px;
+            left: 11px;
+                width: 55px;
+                height: 55px;
+                border-radius: 50%;
+                border: 1px solid whitesmoke;
+        }
+        #addFriend{
+            display: inline;
+        }
+    }
+    mat-list-option:hover{
+        background: #cce1ff;
+    }
+    mat-list-option:hover fa-icon{
+        display: block;
+    }
+    mat-list-option:active{
+        background: #6dc4be;
+    }
+    .accep{
+        position: relative;
+        left: 80px;
+        bottom: -3px;
+        height: 40px;
+        button{
+            float: left;
+            width: 80px;
+            border-radius: 7px;
+            height: 25px;
+            margin-right: 20px;
+            text-align: center;
+            span{
+                position: relative;
+                bottom: 12px;
+                font-size: 10px;
+                font-weight: bold;
+            }
+            background: #0cb3ff;
+            color: white;
+            
+        }
+        .remove{
+            background: rgb(221, 221, 221);
+            color: rgb(44, 44, 44);
+        }
+    }
+}
+::ng-deep .menusett {
+    border-radius: 15px!important;
+    width: 180px!important;
+    background-color: rgba(0,0,0,0.5);
+  }
+
+  ::-webkit-scrollbar{
+      display: none;
+  }

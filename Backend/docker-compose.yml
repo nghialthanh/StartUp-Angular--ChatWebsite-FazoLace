@@ -1,0 +1,49 @@
+version: '3.1'
+services:
+  # angular:   
+  #   build: './fazolace-view'
+  #   ports:
+  #     - 8181:80
+  users:
+    build: './users'
+    ports:
+      - "3001:8000"   
+  contacts:
+    build: './contacts'
+    ports:
+      - "3002:8000"  
+  chats1:
+    build: './chats'
+    links:
+    - redis
+    ports:
+      - "3003:8000" 
+  chats2:
+    build: './chats'
+    links:
+    - redis
+    ports:
+      - "3004:8000" 
+  chats3:
+    build: './chats'
+    links:
+    - redis
+    ports:
+      - "3005:8000" 
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+    depends_on:
+      - users
+      - contacts
+      - chats1
+      - chats2
+      - chats3
+  redis:
+      image: redis:alpine
+      container_name: redis
+      ports:
+        - "6379:6379"

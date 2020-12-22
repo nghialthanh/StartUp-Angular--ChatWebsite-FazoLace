@@ -1,0 +1,163 @@
+@keyframes image {
+	0% {margin-left: 0px;}
+	100% {margin-left: 60px;}
+  }
+.sidebar {
+	width: 75px;
+	height: 93vh;
+	position: fixed;
+	margin-top: 3.5vh;
+	background: #55bdb6 !important;
+	
+	border-radius: 0 15px 15px 0;
+	box-shadow: rgba(0,0,0,0.12) 0px 1px 4px 1px;
+	overflow: hidden;
+	z-index: 100;
+	transition: width .5s;
+    .dropdown{
+		height: 80px;	
+		width: 100%;
+		img{
+			position: absolute;
+			top: 10px;
+			left: 9.5px;
+				width: 55px;
+				height: 55px;
+				border-radius: 50%;
+				border: 1px solid white;
+		}
+		
+    }
+    
+    .dropdown:hover{
+        cursor: pointer;
+    }
+}
+.sidebar:hover{
+	width: 200px;
+}
+
+.sidebar:hover .sidebar-nav-item img{
+	display: inline;
+}
+.sidebar:hover .dropdown img{
+	animation-name: image;
+  	animation-duration: 0.5s;
+}
+.sidebar:hover .dropdown img {-webkit-animation-fill-mode: both;}
+.sidebar-nav {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+    height: 100vh;
+}
+
+.sidebar-nav-item {
+	width: 100%;
+	span{
+		font-size: 18px;
+		color: whitesmoke;
+		font-weight: 200;
+	}
+	img{ display: none;}
+}
+.sidebar-nav-link {
+    display: flex;
+    height: 80px;
+	align-items: center;
+	color: var(--second-color);
+	text-decoration: none;
+}
+.sidebar-nav-link fa-icon {
+    font-size: 35px;
+	color: white;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.sidebar-nav-link div {
+	min-width: 82px;
+	height: 50px;
+	position: relative;
+}
+
+.sidebar-nav-link:hover {
+	background: #3ad3c9;
+	color: var(--main-default);
+}
+.sidebar-expand .sidebar {
+	width: 250px;
+}
+
+.sidebar-expand .wrapper {
+	margin-left: 250px;
+}
+.menu {
+	position: absolute;
+	
+	height: 130px;
+	width: 240px;
+	margin: 0;
+	top:0px;
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 15px;
+	button{
+		color:whitesmoke;
+		width: 100%;
+		height: 40px;
+		span{
+			position: absolute;
+			font-size: 15px;
+			left: 25%;
+			top: -5px;
+		}
+		fa-icon{
+			position: absolute;
+			top:-5px;
+			left: 8%;
+			color:whitesmoke;
+			font-size: 20px;
+		}
+		
+	}
+	button:hover{
+		background-color: rgba(2, 2, 2, 0.2);
+	}
+	.so{
+		span{
+			color: red;
+			font-weight: bold;
+		}
+		fa-icon{
+			color: red;
+		}
+	}
+	img{
+		width: 100%;
+		height: 70px;
+	}
+}
+.thongbao{
+	font-size: .8rem;
+	font-weight: 300;
+	position: absolute;
+	left: 50px;
+	top: 255px;
+	color: #fff;
+	background: red;
+	border-radius: 50%;
+	
+	width: 17px;
+	height: 17px;
+	text-align: center;
+	vertical-align: top;
+}
+::ng-deep .menusett {
+    border-radius: 15px!important;
+    background-color: rgba(0,0,0,0.5);
+  }

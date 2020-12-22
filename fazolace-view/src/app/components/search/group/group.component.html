@@ -1,0 +1,23 @@
+<div class="addgroup">
+  <h1 mat-dialog-title>Tạo Nhóm</h1>
+  <div class="hearder">
+    <div mat-dialog-content>
+      <mat-form-field>
+        <mat-label>Tên nhóm</mat-label>
+        <input matInput [(ngModel)]="namegroup">
+        <input id="file-input" type="file" (change)="onImagePicked($event)" />
+
+      </mat-form-field>
+    </div>
+    <p>Số lượng thành viên: {{listfri.selectedOptions.selected.length}}</p>
+  </div>
+  <mat-selection-list #listfri>
+    <mat-list-option *ngFor="let i of listFriend" (click)="getInfor(i.account_name)">
+      <img src="{{url}}{{i.user_image}}" alt="User image" />
+      <p style="color: black;">{{i.user_name}}</p>
+    </mat-list-option>
+  </mat-selection-list>
+  <div mat-dialog-actions>
+    <button mat-button type="submit" (click)="createRoom(namegroup)">Tạo nhóm </button>
+  </div>
+</div>

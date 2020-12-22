@@ -1,0 +1,216 @@
+<div class="container-child">
+  <mat-card class="form-center">
+    <p class="title">
+      <mat-card-header>
+        <div mat-card-avatar class="title-img"></div>
+        <mat-card-title class="title-login"
+          >Tham gia cùng gia đình Fazalace nào</mat-card-title
+        >
+      </mat-card-header>
+    </p>
+
+    <mat-horizontal-stepper class="form-child" linear #stepper>
+      <mat-step
+        [stepControl]="firstFormGroup"
+        state="phone"
+        [optional]="isOptional"
+      >
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel >Số điện thoại - Email</ng-template>
+          <p class="breadcrumb-item active title-choose">
+            Chọn tài khoản đăng nhập
+          </p>
+          <p>
+            <mat-form-field class="text-item" appearance="outline">
+              <mat-label>Đăng nhập bằng số điện thoại</mat-label>
+              <input
+                (change)="KeyDownPhone()"
+                pattern="^\d{10}$"
+                [(ngModel)]="user1.user_phone"
+                matInput
+                [required]="isRequired"
+                placeholder="0961059599"
+                formControlName="firstCtrl_phone"
+              />
+              <mat-icon class="custom-icon" matSuffix>phone</mat-icon>
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field class="text-item" appearance="outline">
+              <mat-label>Đăng nhập bằng email</mat-label>
+              <input
+                [required]="isRequired"
+                pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                (change)="KeyDownEmail()"
+                [(ngModel)]="user1.user_email"
+                matInput
+                placeholder="duongchihieu.090599@gmail.com"
+                formControlName="firstCtrl_email"
+              />
+              <mat-icon class="custom-icon" matSuffix>mail</mat-icon>
+            </mat-form-field>
+          </p>
+
+          <div>
+            <div class="container-button">
+              <button
+                mat-raised-button
+                color="warn"
+                (click)="resigterAccount()"
+              >
+                Đăng ký
+              </button>
+            </div>
+          </div>
+          <p class="login">
+            Đã là 1 thành viên trong gia đình?<a class="login-link" href="login"
+              >Đăng nhập ngay</a
+            >
+          </p>
+        </form>
+      </mat-step>
+
+      <mat-step
+        [stepControl]="secondFormGroup"
+        label="Xác nhận tài khoản"
+        [optional]="isOptional"
+      >
+        <form [formGroup]="secondFormGroup">
+          <p class="breadcrumb-item active title-choose">
+            Nhập mã OTP được gởi tới số điện thoại/email của bạn
+          </p>
+          <mat-form-field class="text-item" appearance="outline">
+            <mat-label>Nhập mã OPT</mat-label>
+            <input
+              matInput
+              maxlength="6"
+              [(ngModel)]="accountRegister.code"
+              formControlName="secondCtrl_OTP"
+            />
+          </mat-form-field>
+          <div class="right-button-OTP">
+            <button mat-button matStepperPrevious>Lùi lại</button>
+            <button mat-raised-button color="warn"  (click)="confirmOTP()">
+              Xác nhận
+            </button>
+          </div>
+        </form>
+      </mat-step>
+
+      <mat-step>
+        <ng-template matStepLabel>Bổ sung thông tin</ng-template>
+
+        <p>
+          <mat-form-field class="text-item" appearance="outline">
+            <mat-label>Nhập mật khẩu</mat-label>
+            <input
+              [(ngModel)]="user1.account_pass"
+              placeholder="Nhập mật khẩu"
+              matInput
+              [type]="hide ? 'password' : 'text'"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="ClickHidePassword()"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+              required
+            >
+              <mat-icon class="custom-icon">{{
+                hide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field class="text-item" appearance="outline">
+            <mat-label>Xác nhận lại mật khẩu</mat-label>
+            <input
+              [(ngModel)]="temp.passConfirm"
+              placeholder="Nhập mật khẩu"
+              matInput
+              [type]="hide ? 'password' : 'text'"
+            />
+            <button
+              mat-icon-button
+              matSuffix
+              (click)="ClickHidePassword()"
+              [attr.aria-label]="'Hide password'"
+              [attr.aria-pressed]="hide"
+              required
+            >
+              <mat-icon class="custom-icon">{{
+                hide ? "visibility_off" : "visibility"
+              }}</mat-icon>
+            </button>
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field class="text-item" appearance="outline">
+            <mat-label>Họ và tên</mat-label>
+            <input
+              [(ngModel)]="user1.user_name"
+              matInput
+              placeholder="Nhập họ và tên"
+              required
+            />
+            <mat-icon class="custom-icon" matSuffix>account_circle</mat-icon>
+          </mat-form-field>
+        </p>
+
+        <mat-form-field class="datepicker-custom" appearance="fill">
+          <mat-label>Ngày sinh</mat-label>
+          <input
+            [(ngModel)]="user1.user_date"
+            matInput
+            [matDatepickerFilter]="myFilter"
+            [matDatepicker]="picker"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-radio-group
+          aria-label="Chọn giới tính"
+          [(ngModel)]="user1.user_gender"
+        >
+          <mat-radio-button checked="true" value="Nam">Nam</mat-radio-button>
+          <mat-radio-button value="Nữ">Nữ</mat-radio-button>
+          <mat-radio-button value="Khác">Khác</mat-radio-button>
+        </mat-radio-group>
+
+        <p>
+          <mat-checkbox class="checkbox-color" [(ngModel)]="isCheckBox"
+            >Tôi đã đọc và đồng ý với các điều khoản trên</mat-checkbox
+          >
+        </p>
+        <div class="container-button">
+          <button
+            mat-raised-button
+            color="warn"
+            [disabled]="!isCheckBox"
+            (click)="onUpdateuser()"
+          >
+            Hoàn tất đăng kí
+          </button>
+        </div>
+        <div>
+          <a class="login-link" href="login">Đăng nhập ngay</a>
+          <button mat-button (click)="stepper.reset()">Trở lại ban đầu</button>
+        </div>
+      </mat-step>
+      <ng-template matStepperIcon="phone">
+        <mat-icon>call_end</mat-icon>
+      </ng-template>
+      <ng-template matStepperIcon="mail">
+        <mat-icon>mail</mat-icon>
+      </ng-template>
+    </mat-horizontal-stepper>
+  </mat-card>
+</div>

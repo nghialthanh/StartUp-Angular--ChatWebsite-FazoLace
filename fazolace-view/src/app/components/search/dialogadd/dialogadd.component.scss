@@ -1,0 +1,108 @@
+.addfriend{
+    overflow: hidden;
+    mat-label{
+        color:   #78e08f;
+    }
+    button{
+        color: gray;
+        text-align: center;
+        width: 100%;
+    }
+    #header{
+        height: 100px;
+    }
+    h1{
+        text-align: center;
+    }
+}
+.Viewinfo{
+    width: 100%;
+    height: 400px;
+    display: none;
+    .bia{
+        width: 100%;
+        height: 150px;
+    }
+    .ava{
+        position: relative;
+		top: -60px;
+		left: 35%;
+		width: 105px;
+		height: 105px;
+        border-radius: 50%;
+        border: 0.3px solid white;
+    }
+    #ten{
+        position: relative;
+        z-index: 1000;
+		top: -60px;
+        color:black;
+        width: 100%;
+        text-align: center;
+        border-radius: 50%;
+        border: 0.3px solid white;
+        font-size: 25px;
+    }
+    table{
+        position: relative;
+        top: -40px;
+        left: 55px;
+        color: gray;
+        text-align: left;
+        td{
+            padding-left: 40px;
+            padding-bottom: 10px;
+        }
+    }
+    ul{
+        color: gray;
+        position: relative;
+        top: -10px;
+        list-style: none;
+        width: 100%;
+        li{     
+
+            height: 60px;
+            width: 33%;
+            margin-top: 15px;
+            text-align: center;
+            float: left;
+            margin-right: 40px;
+            margin-left: 20px;
+            fa-icon{
+                margin-top: 10px;
+                font-size: 23px;
+            }
+        }
+        li:hover{
+            cursor: pointer;
+            color:  #1c9436;
+            
+        }
+        #last{
+            border-right: 0px;
+        }
+    }
+}
+::ng-deep .mat-dialog-container{
+    background-color: white;
+}
+::ng-deep .mat-dialog-title{
+    background-color: #1c9436;
+    width: 100%;
+}
+::ng-deep input.mat-input-element {
+    color: gray;
+  }
+  ::ng-deep .mat-form-field-underline{
+    color:   #1c9436 !important;
+}
+  /* Change label color on focused */
+  ::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color:   #1c9436 !important;
+  }
+  
+  /* underline border color on focused */
+  ::ng-deep .mat-focused .mat-form-field-underline .mat-form-field-ripple{
+    background-color:   #1c9436 !important;
+  }

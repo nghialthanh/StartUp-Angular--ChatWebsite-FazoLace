@@ -1,0 +1,71 @@
+button,
+.mat-button-base,
+.mat-icon-button,
+.mat-fab,
+.mat-mini-fab {
+  outline: none;
+}
+.logout-button {
+  color: red;
+}
+.title-dialog {
+  display: block;
+}
+.update-info {
+  display: inline;
+  line-height: 40px;
+  text-align: center;
+  font-size: 17px;
+}
+.close-button {
+  float: right;
+}
+.img-group {
+  position: relative;
+  width: 100%;
+  height: 30%;
+  margin-bottom: 18%;
+}
+.img-back {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+.avt-img {
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  top: 50%;
+}
+
+.button-camera {
+  position: absolute;
+  top: 100%;
+  left: 57%;
+  z-index: 2;
+  background-color: white;
+}
+.info {
+  width: 100%;
+  text-align: center;
+}
+.mat-form-field {
+  width: 70%;
+}
+.radio-group-custom {
+  width: 70%;
+}
+.item-radio {
+  margin-left: 25px;
+}
+.button-deliver {
+  text-align: right;
+  margin-top: 20px;
+}
+.button-deliver > button {
+  margin-left: 10px;
+  margin-right: 5px;
+}

@@ -1,0 +1,129 @@
+//animation
+@keyframes login {
+  0% {left: 120%;}
+	100% {left: 50%;}
+}
+@keyframes begin {
+  0% {left: 50%;}
+	100% {left: -20%;}
+}
+//key 1
+button {
+  outline: none;
+  border: none;
+}
+.mat-fab {
+  outline: none;
+}
+.mat-mini-fab {
+  outline: none;
+}
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.container-child {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://media.idownloadblog.com/wp-content/uploads/2020/02/MetallicBlackByArthur1992aS-Polygon-wallpaper-desktop.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background: -webkit-linear-gradient(to right, #78f1e9, #86A8E7, #7F7FD5);
+  background: linear-gradient(to right, #78f1e9, #86A8E7, #7F7FD5);
+  .beginform{
+    width: 400px;
+    height: 400px;
+    
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-name: begin;
+    animation-duration: 1s;
+    animation-delay: 2s;
+    animation-fill-mode: both;
+    h1{
+      width: 100%;
+      text-align: center;
+      color: azure;
+      font-weight: bold;
+      font-size: 30px;
+    }
+    img{
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
+.form-center {
+  width: 30%;
+  //background-image: url("https://freedesignfile.com/upload/2017/01/Light-blue-tech-background-vector-04.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  transform: translate(-50%, -50%);
+  animation-name: login;
+  animation-duration: 1s;
+  animation-delay: 2s;
+  animation-fill-mode: both;
+}
+.text-item {
+  width: 100%;
+}
+.custom-icon {
+  font-size: 25px;
+  color: rgb(78, 74, 78);
+}
+title {
+  display: flex;
+}
+.title-login {
+  justify-content: center;
+  font-size: 21px;
+  line-height: 40px;
+  text-shadow: 1px 1px 0 rgb(34, 84, 160), 1px 1px 0 rgb(34, 84, 160);
+  color: rgb(78, 74, 78);
+  font-family: "Orienta", sans-serif;
+  text-transform: uppercase;
+}
+.title-img {
+  justify-content: center;
+  background-image: url("../../../assets/title-img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40px;
+}
+.container-button {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 10px;
+}
+.custom-button {
+  color: rgb(78, 74, 78);
+}
+.link-register {
+  margin: 5px;
+}

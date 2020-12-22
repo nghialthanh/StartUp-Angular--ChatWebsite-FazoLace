@@ -1,0 +1,56 @@
+
+.search{
+    position: fixed;
+    width: 330px;
+    border-bottom: 0.1px solid rgb(199, 198, 198);
+    height: 11vh;
+    margin-left: 85px;
+    margin-top: 3.5vh;
+    border-radius: 15px 15px 0 0;
+    background-color: rgba(0,0,0,0.4) !important;
+    p{
+        width: 100%;
+        text-align: center;
+        color: wheat;
+    }
+    p:hover{
+        cursor: pointer;
+    }
+    .navbar-search input {
+        position: absolute;
+        bottom: 5px;
+        font-size: 17px;
+        border-radius: 20px;
+        border-color: #78f1e9;
+        margin-left: 36px;
+    }
+    fa-icon{
+        color:  whitesmoke;
+        font-size: 20px;
+    }
+    fa-icon:hover{
+        cursor: pointer;
+        color:#78f1e9;
+    }
+    .iconS{
+        position: absolute;
+        left: 8px;
+        bottom: 5px;
+    }
+    .iconup{
+        position: absolute;
+        right: 37px;
+        bottom: 5px;
+    }
+    .iconu{
+        position: absolute;
+        right: 5px;
+        bottom: 5px;
+    }
+    .user-name-tilte{
+        font-size: large;
+        margin-top: 5%;
+        margin-left: 3%;
+        font-weight: 500;
+    }
+}

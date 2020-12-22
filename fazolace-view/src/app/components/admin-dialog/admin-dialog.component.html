@@ -1,0 +1,88 @@
+<div></div>
+<div class="title-dialog">
+  <p class="update-info">Thêm tài khoản</p>
+  <button
+    class="close-button"
+    mat-icon-button
+    (click)="CloseDialog()"
+    aria-label="Example icon button with a vertical three dot icon"
+  >
+    <mat-icon>close</mat-icon>
+  </button>
+</div>
+<div class="img-group">
+  <img
+    class="img-back"
+    src="https://img.freepik.com/free-vector/abstract-technology-particle-background_52683-25766.jpg?size=626&ext=jpg"
+    alt=""
+  />
+  <img class="avt-img" [src]="user1.user_image" alt="" id="user_image" />
+  <button
+    (click)="fileInput.click()"
+    class="button-camera"
+    mat-icon-button
+    aria-label="Example icon button with a home icon"
+  >
+    <mat-icon style="color: gray">camera_enhance</mat-icon>
+  </button>
+  <input
+    #fileInput
+    type="file"
+    (change)="onFileInput($event)"
+    style="display: none"
+  />
+</div>
+<div class="info">
+  <mat-form-field appearance="">
+    <mat-label>Họ và tên</mat-label>
+    <input matInput [(ngModel)]="user1.user_name" />
+  </mat-form-field>
+  <mat-form-field appearance="">
+    <mat-label>Số điện thoại</mat-label>
+    <input
+      pattern="(09|01[2|6|8|9])+([0-9]{8})\b"
+      matInput
+      [(ngModel)]="user1.user_phone"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="">
+    <mat-label>Email</mat-label>
+    <input
+      pattern="^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"
+      matInput
+      [(ngModel)]="user1.user_email"
+    />
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Ngày sinh</mat-label>
+    <input
+      required
+      matInput
+      [matDatepicker]="picker"
+      [(ngModel)]="user1.user_date"
+    />
+    <mat-datepicker-toggle matSuffix [for]="picker">
+      <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <p class="radio-group-custom">
+    <mat-radio-group
+      aria-label="Chọn giới tính"
+      [(ngModel)]="user1.user_gender"
+    >
+      <mat-radio-button class="item-radio" checked="true" value="Nam"
+        >Nam</mat-radio-button
+      >
+      <mat-radio-button class="item-radio" value="Nữ">Nữ</mat-radio-button>
+      <mat-radio-button class="item-radio" value="Khác">Khác</mat-radio-button>
+    </mat-radio-group>
+  </p>
+</div>
+<mat-divider></mat-divider>
+<p class="button-deliver">
+  <button (click)="CloseDialog()" mat-stroked-button color="basic">Hủy</button>
+  <button (click)="onAdd()" mat-stroked-button color="primary">
+    Thêm tài khoản
+  </button>
+</p>

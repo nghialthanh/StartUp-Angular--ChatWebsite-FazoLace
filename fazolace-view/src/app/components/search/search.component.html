@@ -1,0 +1,16 @@
+<div class="search">
+    <p routerLink="/home" class="user-name-tilte">fazer-{{ user_name }}</p>
+    <div class="iconS">
+        <fa-icon [icon]="fas"></fa-icon>
+    </div>
+    <form class="navbar-search">
+        <input type="text" name="Search" class="navbar-search-input" placeholder="What you looking for..." />
+    </form>
+    <div class="iconup">
+        <fa-icon [icon]="faup" (click)="openDialog()"></fa-icon>
+    </div>
+    <div class="iconu">
+        <fa-icon [icon]="fau" (click)="openDialog2()"></fa-icon>
+    </div>
+</div>
+

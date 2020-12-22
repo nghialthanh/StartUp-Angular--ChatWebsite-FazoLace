@@ -1,0 +1,146 @@
+//key 1
+button {
+  outline: none;
+}
+.mat-fab {
+  outline: none;
+}
+.mat-mini-fab {
+  outline: none;
+}
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.example-right-align {
+  text-align: right;
+}
+
+input.example-right-align::-webkit-outer-spin-button,
+input.example-right-align::-webkit-inner-spin-button {
+  display: none;
+}
+
+input.example-right-align {
+  -moz-appearance: textfield;
+}
+
+.container-child {
+  width: 100%;
+  height: 100vh;
+  background-image: url("https://media.idownloadblog.com/wp-content/uploads/2020/02/MetallicBlackByArthur1992aS-Polygon-wallpaper-desktop.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background: -webkit-linear-gradient(to right, #78f1e9, #86A8E7, #7F7FD5);
+	background: linear-gradient(to right, #78f1e9, #86A8E7, #7F7FD5);
+}
+.form-center {
+  width: 45%;
+  background-image: url("https://freedesignfile.com/upload/2017/01/Light-blue-tech-background-vector-04.jpg");
+  background-repeat: no-repeat;
+
+  background-size: cover;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.form-child {
+  background: transparent;
+  height: 78vh;
+}
+.text-item {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.custom-icon {
+  font-size: 25px;
+  color: rgb(78, 74, 78);
+}
+title {
+  display: flex;
+}
+.title-login {
+  justify-content: center;
+  font-size: 24px;
+  line-height: 45px;
+  text-shadow: 1px 1px 0 rgb(34, 84, 160), 1px 1px 0 rgb(34, 84, 160);
+  color: rgb(78, 74, 78);
+  font-family: "Orienta", sans-serif;
+  text-transform: uppercase;
+}
+.title-img {
+  justify-content: center;
+  background-image: url("../../../assets/title-img.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 40px;
+}
+.container-button {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  padding: 20px;
+}
+.custom-button {
+  color: rgb(78, 74, 78);
+}
+.link-register {
+  margin: 10px;
+}
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+  margin-bottom: 10px;
+}
+.login {
+  padding-top: 10%;
+  text-align: center;
+  font-size: 15px;
+}
+.login-link {
+  margin-left: 10px;
+}
+.img-border-avt {
+  display: block;
+  text-align: center;
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+.img-avt {
+  position: absolute;
+  width: 200px;
+  box-shadow: 5px 5px 5px 5px #888888;
+  border-radius: 50%;
+  border: 1px dotted black;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  background-image: url("https://taimienphi.vn/tmp/cf/aut/mAKI-top-anh-dai-dien-dep-chat-1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translate(-50%, -50%);
+}
+.datepicker-custom {
+  margin-right: 50px;
+}
+.title-choose {
+  font-size: 20px;
+  text-align: center;
+  text-shadow: 1px 1px 0px #d5d5d5, 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+.right-button-resigter{
+    position: absolute;
+    right: 45%;
+    margin: 0;
+}
+.right-button-OTP{
+  position: absolute;
+    right: 40%;
+    margin: 0;
+}

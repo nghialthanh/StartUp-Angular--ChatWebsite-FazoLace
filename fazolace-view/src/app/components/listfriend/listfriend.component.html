@@ -1,0 +1,66 @@
+<div class="listfriend" id="listFriend">
+  <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option *ngFor="let f of friList" [value]="f" (click)="sendFromContact(f)">
+          <img src="{{f.url}}" alt="" />
+          <p>{{f.user_name}}</p>
+          <fa-icon [icon]="fa" [matMenuTriggerFor]="menu" ></fa-icon> 
+          <mat-menu #menu="matMenu" class="menusett">
+            <div class="menu">
+                <button mat-menu-item ><span>Xóa cuộc trò chuyện</span></button>
+                <button mat-menu-item ><span>Xem thông tin cá nhân</span></button>
+                <button mat-menu-item class="cut" (click)="onDenyList(f.account_name)"><span>Hủy kết bạn</span></button>
+            </div>
+        </mat-menu>
+      </mat-list-option>
+    </mat-selection-list> 
+</div>
+
+
+<div class="listfriend1" id="addFriend">
+<mat-selection-list  [multiple]="false">
+    <mat-list-option *ngFor="let f of fri;let i=index;" [value]="f">
+        <img src="{{f.url}}" alt="" />
+        <p>{{f.user_name}}</p>
+        <p class="status" id="status{{i}}"></p>
+          <div class="accep" id="accep{{i}}">
+              <button mat-menu-item value="Chấp nhận" (click)="onAccept(f.account_name,i,1) "><span>Chấp nhận</span></button>
+              <button mat-menu-item class="remove" value="Xóa" (click)="onDenyAdd(f.account_name,i,2)"><span>Xóa</span></button>
+          </div>
+    </mat-list-option>
+</mat-selection-list> 
+  <!-- <p>
+    Option selected: {{shoes.selectedOptions.selected[0]?.value}}
+  </p> -->
+</div>
+
+
+<div class="listfriend" id="ContactList">
+  <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option *ngFor="let f of listMess" [value]="f"(click)="sendFromMessage(f)">
+        <div *ngIf="f.infor!=''; else elseBlock">
+          <img src="{{this.urlImage}}{{f.infor.user_image}}" alt="" />
+          <p>{{f.infor.user_name}}</p>
+          <fa-icon [icon]="fa" [matMenuTriggerFor]="menu" ></fa-icon> 
+          <mat-menu #menu="matMenu" class="menusett">
+            <div class="menu">
+                <button mat-menu-item ><span>Xóa cuộc trò chuyện</span></button>
+                <button mat-menu-item ><span>Xem thông tin cá nhân</span></button>
+                <button mat-menu-item class="cut" (click)="onDenyList(f.id,f.account_name)"><span>Hủy kết bạn</span></button>
+            </div>
+        </mat-menu>
+        </div>
+        <ng-template #elseBlock>
+          <img src="{{this.urlImage}}{{f.convention.conventionImage}}" alt="" />
+          <p>{{f.convention.conventionName}}</p>
+          <fa-icon [icon]="fa" [matMenuTriggerFor]="menu" ></fa-icon> 
+          <mat-menu #menu="matMenu" class="menusett">
+            <div class="menu">
+                <button mat-menu-item ><span>Xóa cuộc trò chuyện</span></button>
+                <button mat-menu-item ><span>Xem thông tin cá nhân</span></button>
+                <button mat-menu-item class="cut" (click)="onDenyList(f.id,f.account_name)"><span>Hủy kết bạn</span></button>
+            </div>
+        </mat-menu>
+        </ng-template>
+      </mat-list-option>
+    </mat-selection-list> 
+</div>
